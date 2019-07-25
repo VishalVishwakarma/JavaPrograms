@@ -57,24 +57,13 @@ class MyLinkedList{
                 
                 Node temp = head.next;
                 head.next = temp.next;
-                System.out.println("head-next "+head.next.data);
-                
-                //while(temp.data==n){
-                  //  temp = temp.next;
-                  //System.out.print("Same");
-                  //temp = temp.next;
-                //}
-                //head.next = temp;
-                //System.out.println("temp"+head.next);              
+                           
             }
             if(head.next.data != n){
                 head = head.next;
-                System.out.println("head-next-2 "+head.data);
             } else {
                 head.next = null;
                 head = head.next;
-                System.out.println("head-next-null");
-                break;
             }
             
         }
