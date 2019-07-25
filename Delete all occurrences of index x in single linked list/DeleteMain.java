@@ -52,10 +52,31 @@ class MyLinkedList{
 
         //Except First Node, we remove all nodes matching key 'n'.
         while(head != null && head.next != null){
-            if (head.next.data == n) {
-                head.next = head.next.next;
+            
+            while(head.next.data == n && head.next.next != null) {
+                
+                Node temp = head.next;
+                head.next = temp.next;
+                System.out.println("head-next "+head.next.data);
+                
+                //while(temp.data==n){
+                  //  temp = temp.next;
+                  //System.out.print("Same");
+                  //temp = temp.next;
+                //}
+                //head.next = temp;
+                //System.out.println("temp"+head.next);              
             }
-            head = head.next;
+            if(head.next.data != n){
+                head = head.next;
+                System.out.println("head-next-2 "+head.data);
+            } else {
+                head.next = null;
+                head = head.next;
+                System.out.println("head-next-null");
+                break;
+            }
+            
         }
 
         //First Node is still remaining to be checked
@@ -89,7 +110,7 @@ public class DeleteMain{
         //Declared a TEMP node, that will store the node returned by the function deleteAllOccurences()
         Node temp = ll.deleteAllOccurences(ll.head, n);
         System.out.println("The list after deletion: ");
-        
+        //ll.display();
         //Defined a new function printLinkList to display the linklist from the node provided
         ll.printLinkList(temp);
     }
